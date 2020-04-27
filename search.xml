@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>webpack配置babel出现默认版本问题</title>
+      <link href="/2020/04/27/webpack%E9%85%8D%E7%BD%AEbabel%E5%87%BA%E7%8E%B0%E7%89%88%E6%9C%AC%E6%8A%A5%E9%94%99%E5%9D%91/"/>
+      <url>/2020/04/27/webpack%E9%85%8D%E7%BD%AEbabel%E5%87%BA%E7%8E%B0%E7%89%88%E6%9C%AC%E6%8A%A5%E9%94%99%E5%9D%91/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="note primary">            <p>Hexo+GitHub Page+butterfly+jsdelivr+来比力+algolia+百度统计+leancloud+aplayer+PicGo </p>          </div><div class="note info">            <p>第二篇个人博客，关于讲解服务器运行出现问号+彻底解决mysql保存数据出现中文的情况</p>          </div><div class="note success">            <p>第三篇个人博客，关于讲解阿里云ecs服务器开启ipv6支持(超详细教程)</p>          </div><div class="note success">            <p>第四篇个人博客，关于webpack配置babel出现默认下载的版本出错</p>          </div><h3 id="1、为什么webpack需要配置babel"><a href="#1、为什么webpack需要配置babel" class="headerlink" title="1、为什么webpack需要配置babel"></a>1、为什么webpack需要配置babel</h3><p>因为在webpack中，默认只能处理一部分es6的语法，一些更高级的es6和es7语法webpack不能处理，这时就需要第三方的loader即babel来帮助webpack来处理这些高级的语法</p><h3 id="2、webpack配置babel默认命令"><a href="#2、webpack配置babel默认命令" class="headerlink" title="2、webpack配置babel默认命令"></a>2、webpack配置babel默认命令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm i babel-core babel-loader babel-plugin-transform-runtime -D</span><br><span class="line">cnpm i babel-preset-env babel-preset-stage-0 -D</span><br></pre></td></tr></table></figure><h3 id="3、使用上面的命令会出现什么问题"><a href="#3、使用上面的命令会出现什么问题" class="headerlink" title="3、使用上面的命令会出现什么问题"></a>3、使用上面的命令会出现什么问题</h3><ol><li><p>当我们安装完毕babel之后，打包的时候会报错，错误如下所示：</p><p><img alt data-src="https://cdn.jsdelivr.net/gh/YDKD/Blogger/blog/20200427153811.png" class="lazyload"></p><p><code>注意：Error: Cannot find module &#39;@babel/core&#39;</code></p></li><li><p>你会发现浏览器会报错</p><p><img alt data-src="https://cdn.jsdelivr.net/gh/YDKD/Blogger/blog/QQ截图20200427154211.png" class="lazyload"></p></li></ol><h3 id="4、出现这个问题的原因"><a href="#4、出现这个问题的原因" class="headerlink" title="4、出现这个问题的原因"></a>4、出现这个问题的原因</h3><ol><li><p>打开<code>packge.json</code>,</p><p><img alt data-src="https://cdn.jsdelivr.net/gh/YDKD/Blogger/blog/20200427155614.png" class="lazyload"></p></li><li><p>发现 babel-core和babel-loader的版本号是对不上的，查找了官网，babel-core 6对应babel-loader 7</p></li><li><p>默认下载babel-loader是最新的 8的版本，所以只需要退回7 的版本就可以了</p></li></ol><h3 id="5、解决办法"><a href="#5、解决办法" class="headerlink" title="5、解决办法"></a>5、解决办法</h3><p>1、删除现在的babel-loader</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm un babel-loader</span><br></pre></td></tr></table></figure><p>2、重新安装</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm i babel-loader@7</span><br></pre></td></tr></table></figure><p>3、重新打包，问题解决</p><p><img alt data-src="https://cdn.jsdelivr.net/gh/YDKD/Blogger/blog/20200427160511.png" class="lazyload"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> webpack </tag>
+            
+            <tag> babel </tag>
+            
+            <tag> 版本问题 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>阿里云ecs服务器开启ipv6支持(超详细教程)</title>
       <link href="/2020/01/23/%E9%98%BF%E9%87%8C%E4%BA%91%E5%BC%80%E5%90%AFIPv6%E6%94%AF%E6%8C%81/"/>
       <url>/2020/01/23/%E9%98%BF%E9%87%8C%E4%BA%91%E5%BC%80%E5%90%AFIPv6%E6%94%AF%E6%8C%81/</url>
